@@ -4,277 +4,309 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VH Web – Sites que vendem de verdade</title>
-  <meta name="description" content="VH Web cria sites profissionais para comércios de Artur Nogueira e região." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&display=swap" rel="stylesheet" />
+  <meta name="description" content="VH Web cria sites profissionais para o seu negócio. Rápido, bonito e no Google." />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Cursor personalizado -->
   <div class="cursor" id="cursor"></div>
-  <div class="cursor-follower" id="cursorFollower"></div>
+  <div class="cursor-follower" id="follower"></div>
 
-  <!-- ═══ NAVBAR ═══ -->
+  <!-- NAV -->
   <header class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="#" class="nav__logo">VH<em>Web</em></a>
-      <nav class="nav__links" id="navLinks">
-        <a href="#trabalho" data-cursor="link">Trabalho</a>
-        <a href="#servicos" data-cursor="link">Serviços</a>
-        <a href="#sobre" data-cursor="link">Sobre</a>
-        <!-- TROQUE O NÚMERO ABAIXO -->
-        <a href="https://wa.me/5519994669950" target="_blank" class="nav__cta" data-cursor="link">Falar agora →</a>
+    <div class="nav-inner">
+      <a href="#" class="logo">VH<span>Web</span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#servicos">Serviços</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#sobre">Sobre</a>
+        <a href="https://wa.me/5519994669950" target="_blank" class="nav-btn">Falar agora →</a>
       </nav>
-      <button class="nav__burger" id="burger" aria-label="menu">
-        <span></span><span></span>
-      </button>
+      <button class="burger" id="burger"><span></span><span></span></button>
     </div>
   </header>
 
-  <!-- ═══ HERO ═══ -->
-  <section class="hero">
-    <div class="hero__noise"></div>
-    <div class="hero__orb hero__orb--1"></div>
-    <div class="hero__orb hero__orb--2"></div>
-    <div class="hero__orb hero__orb--3"></div>
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg-grid"></div>
 
-    <div class="hero__inner">
-      <div class="hero__tag">
-        <span class="dot"></span> Disponível para novos projetos · Limeira – SP
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="pulse"></span>
+        Disponível para novos projetos · Limeira – SP
       </div>
 
-      <h1 class="hero__title">
-        <span class="line" data-text="Seu negócio">Seu negócio</span>
-        <span class="line accent-line" data-text="merece um">merece um</span>
-        <span class="line" data-text="site de verdade">site de verdade</span>
+      <h1 class="hero-title">
+        Seu negócio merece<br/>
+        estar na internet<br/>
+        <span class="typed-wrap">de <span class="typed" id="typed"></span></span>
       </h1>
 
-      <p class="hero__desc">
-        Sites profissionais para o seu negócio —<br/>
-        rápido, bonito e no Google.
+      <p class="hero-desc">
+        Você me manda as informações do seu negócio<br/>
+        e eu entrego um site profissional, rápido e no Google.
       </p>
 
-      <div class="hero__actions">
-        <!-- TROQUE O NÚMERO ABAIXO -->
-        <a href="https://wa.me/5519994669950?text=Quero+um+site" target="_blank" class="btn-main" data-cursor="btn">
-          <span>Quero meu site</span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="hero-cta">
+        <a href="https://wa.me/5519994669950?text=Quero+um+site" target="_blank" class="btn-primary">
+          Quero meu site agora
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="#servicos" class="btn-ghost" data-cursor="link">Ver serviços</a>
+        <a href="#servicos" class="btn-outline">Ver serviços</a>
       </div>
 
-      <div class="hero__numbers">
-        <div class="num">
-          <strong><span class="counter" data-target="3">0</span> dias</strong>
-          <small>prazo mínimo</small>
+      <!-- Cards flutuantes -->
+      <div class="floating-cards">
+        <div class="f-card f-card--1">
+          <span class="f-card-icon">⚡</span>
+          <div>
+            <strong>3 dias</strong>
+            <small>entrega mínima</small>
+          </div>
         </div>
-        <div class="num__sep"></div>
-        <div class="num">
-          <strong>R$ <span class="counter" data-target="400">0</span></strong>
-          <small>a partir de</small>
+        <div class="f-card f-card--2">
+          <span class="f-card-icon">✅</span>
+          <div>
+            <strong>Site aprovado!</strong>
+            <small>Padaria do Rei · Limeira</small>
+          </div>
         </div>
-        <div class="num__sep"></div>
-        <div class="num">
-          <strong><span class="counter" data-target="100">0</span>%</strong>
-          <small>atendimento local</small>
+        <div class="f-card f-card--3">
+          <span class="f-card-icon">📈</span>
+          <div>
+            <strong>+240 visitas</strong>
+            <small>primeiro mês</small>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="hero__scroll">
-      <div class="scroll-line"></div>
-      <span>scroll</span>
+    <!-- Stats -->
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num"><span class="counter" data-target="3">0</span> dias</span>
+        <span class="stat-label">prazo mínimo</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-item">
+        <span class="stat-num">R$ <span class="counter" data-target="400">0</span></span>
+        <span class="stat-label">a partir de</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-item">
+        <span class="stat-num"><span class="counter" data-target="100">0</span>%</span>
+        <span class="stat-label">feito por você</span>
+      </div>
     </div>
   </section>
 
-  <!-- ═══ MARQUEE ═══ -->
+  <!-- MARQUEE -->
   <div class="marquee-wrap">
-    <div class="marquee">
-      <div class="marquee__track">
-        <span>Sites Profissionais</span><em>✦</em>
-        <span>Lojas Virtuais</span><em>✦</em>
-        <span>Google Meu Negócio</span><em>✦</em>
-        <span>Entrega em 3 dias</span><em>✦</em>
-        <span>SEO Local</span><em>✦</em>
-        <span>Suporte Mensal</span><em>✦</em>
-        <span>Limeira – SP</span><em>✦</em>
-        <span>Sites Profissionais</span><em>✦</em>
-        <span>Lojas Virtuais</span><em>✦</em>
-        <span>Google Meu Negócio</span><em>✦</em>
-        <span>Entrega em 3 dias</span><em>✦</em>
-        <span>SEO Local</span><em>✦</em>
-        <span>Suporte Mensal</span><em>✦</em>
-        <span>Limeira – SP</span><em>✦</em>
-      </div>
+    <div class="marquee-track">
+      <span>Landing Page</span><em>✦</em>
+      <span>Site Institucional</span><em>✦</em>
+      <span>Loja Virtual</span><em>✦</em>
+      <span>Google Meu Negócio</span><em>✦</em>
+      <span>Entrega em 3 dias</span><em>✦</em>
+      <span>Suporte Mensal</span><em>✦</em>
+      <span>SEO Local</span><em>✦</em>
+      <span>Limeira – SP</span><em>✦</em>
+      <span>Landing Page</span><em>✦</em>
+      <span>Site Institucional</span><em>✦</em>
+      <span>Loja Virtual</span><em>✦</em>
+      <span>Google Meu Negócio</span><em>✦</em>
+      <span>Entrega em 3 dias</span><em>✦</em>
+      <span>Suporte Mensal</span><em>✦</em>
+      <span>SEO Local</span><em>✦</em>
+      <span>Limeira – SP</span><em>✦</em>
     </div>
   </div>
 
-  <!-- ═══ BENTO – SERVIÇOS ═══ -->
-  <section class="section bento-section" id="servicos">
+  <!-- SERVIÇOS -->
+  <section class="section" id="servicos">
     <div class="container">
-      <div class="section-label">O que eu faço</div>
-      <h2 class="section-title">Serviços <span class="stroke-text">& preços</span></h2>
+      <div class="section-tag">O que eu faço</div>
+      <h2 class="section-title">Serviços <em>&</em> preços</h2>
 
-      <div class="bento">
+      <div class="services-list">
 
-        <!-- Card grande – Landing Page -->
-        <div class="bento__card bento__card--tall reveal">
-          <div class="card-tag">Mais rápido</div>
-          <div class="card-icon">⚡</div>
-          <h3>Landing Page</h3>
-          <p>Uma página que converte visitante em cliente. Design focado em ação — botão de WhatsApp, formulário, SEO.</p>
-          <div class="card-price">R$ 400</div>
-          <div class="card-prazo">Entrega em <strong>3 dias úteis</strong></div>
-          <a href="#contato" class="card-link">Quero esse →</a>
+        <div class="service-row reveal">
+          <div class="service-num">01</div>
+          <div class="service-info">
+            <h3>Landing Page <span class="service-price">R$ 400</span></h3>
+            <p>Uma página poderosa para divulgar seu negócio, capturar contatos e converter visitantes em clientes. Com botão direto pro WhatsApp e SEO básico.</p>
+            <div class="service-tags">
+              <span>Design profissional</span>
+              <span>WhatsApp integrado</span>
+              <span>SEO básico</span>
+              <span>Mobile first</span>
+            </div>
+          </div>
+          <div class="service-meta">
+            <div class="service-prazo">⚡ 3 dias úteis</div>
+            <a href="https://wa.me/5519994669950" target="_blank" class="service-btn">Pedir →</a>
+          </div>
         </div>
 
-        <!-- Card destaque – Site Institucional -->
-        <div class="bento__card bento__card--featured bento__card--wide reveal">
-          <div class="card-glow"></div>
-          <div class="card-tag card-tag--accent">Mais pedido</div>
-          <div class="card-icon">🏢</div>
-          <h3>Site Institucional</h3>
-          <p>Site completo, profissional e que aparece no Google. Até 5 páginas, galeria, mapa e redes sociais integradas.</p>
-          <div class="card-price">R$ 700 – R$ 950</div>
-          <div class="card-prazo">Entrega em <strong>5–10 dias úteis</strong></div>
-          <a href="#contato" class="card-link">Quero esse →</a>
+        <div class="service-row service-row--featured reveal">
+          <div class="service-num">02</div>
+          <div class="service-info">
+            <h3>Site Institucional <span class="service-price">R$ 700 – R$ 950</span></h3>
+            <p>Site completo com todas as páginas que seu negócio precisa. Galeria de fotos, mapa, redes sociais e SEO completo para aparecer no Google.</p>
+            <div class="service-tags">
+              <span>Até 5 páginas</span>
+              <span>Galeria de fotos</span>
+              <span>Google Maps</span>
+              <span>SEO completo</span>
+            </div>
+          </div>
+          <div class="service-meta">
+            <div class="service-badge">Mais pedido</div>
+            <div class="service-prazo">⚡ 5–10 dias úteis</div>
+            <a href="https://wa.me/5519994669950" target="_blank" class="service-btn">Pedir →</a>
+          </div>
         </div>
 
-        <!-- Card pequeno – Google -->
-        <div class="bento__card reveal">
-          <div class="card-icon">📍</div>
-          <h3>Google Meu Negócio</h3>
-          <p>Apareça no Maps quando alguém buscar na cidade.</p>
-          <div class="card-price">R$ 150</div>
-          <div class="card-prazo"><strong>1–2 dias</strong></div>
-          <a href="#contato" class="card-link">Quero esse →</a>
+        <div class="service-row reveal">
+          <div class="service-num">03</div>
+          <div class="service-info">
+            <h3>Loja Virtual <span class="service-price">R$ 1.800</span></h3>
+            <p>Venda seus produtos online com carrinho, pagamento por PIX e cartão, e painel fácil de atualizar. Tudo pronto para faturar.</p>
+            <div class="service-tags">
+              <span>PIX e cartão</span>
+              <span>Até 100 produtos</span>
+              <span>Frete automático</span>
+              <span>Painel admin</span>
+            </div>
+          </div>
+          <div class="service-meta">
+            <div class="service-prazo">⚡ 14–21 dias úteis</div>
+            <a href="https://wa.me/5519994669950" target="_blank" class="service-btn">Pedir →</a>
+          </div>
         </div>
 
-        <!-- Card pequeno – Catálogo -->
-        <div class="bento__card reveal">
-          <div class="card-icon">📦</div>
-          <h3>Catálogo Online</h3>
-          <p>Exiba produtos e receba pedidos pelo WhatsApp.</p>
-          <div class="card-price">R$ 1.100</div>
-          <div class="card-prazo"><strong>7–10 dias</strong></div>
-          <a href="#contato" class="card-link">Quero esse →</a>
+        <div class="service-row reveal">
+          <div class="service-num">04</div>
+          <div class="service-info">
+            <h3>Google Meu Negócio <span class="service-price">R$ 150</span></h3>
+            <p>Apareça no Google Maps quando alguém buscar pelo seu tipo de negócio. Criação, verificação e configuração completa.</p>
+            <div class="service-tags">
+              <span>Criação completa</span>
+              <span>Fotos e descrição</span>
+              <span>Google Maps</span>
+            </div>
+          </div>
+          <div class="service-meta">
+            <div class="service-prazo">⚡ 1–2 dias úteis</div>
+            <a href="https://wa.me/5519994669950" target="_blank" class="service-btn">Pedir →</a>
+          </div>
         </div>
 
-        <!-- Card loja -->
-        <div class="bento__card bento__card--dark reveal">
-          <div class="card-icon">🛍️</div>
-          <h3>Loja Virtual</h3>
-          <p>PIX, cartão, frete automático e painel fácil de usar.</p>
-          <div class="card-price">R$ 1.800</div>
-          <div class="card-prazo"><strong>14–21 dias</strong></div>
-          <a href="#contato" class="card-link">Quero esse →</a>
-        </div>
+      </div>
 
-        <!-- Card manutenção -->
-        <div class="bento__card bento__card--glass reveal">
-          <div class="card-icon">🔧</div>
-          <h3>Manutenção Mensal</h3>
-          <p>Site sempre seguro, atualizado e com suporte direto no WhatsApp.</p>
-          <ul class="plan-list">
-            <li><span class="plan-name">Básico</span><span class="plan-price">R$ 79/mês</span></li>
-            <li><span class="plan-name">Profissional</span><span class="plan-price">R$ 149/mês</span></li>
-            <li><span class="plan-name">Premium</span><span class="plan-price">R$ 249/mês</span></li>
-          </ul>
-          <a href="#contato" class="card-link">Quero um plano →</a>
+      <!-- Manutenção -->
+      <div class="manutencao-box reveal">
+        <div class="manutencao-left">
+          <span class="manutencao-icon">🔧</span>
+          <div>
+            <h3>Manutenção Mensal</h3>
+            <p>Site sempre seguro, atualizado e com suporte direto no WhatsApp — sem você precisar entender de tecnologia.</p>
+          </div>
         </div>
-
+        <div class="manutencao-plans">
+          <div class="plan">
+            <span class="plan-name">Básico</span>
+            <span class="plan-price">R$ 79<small>/mês</small></span>
+          </div>
+          <div class="plan plan--accent">
+            <span class="plan-name">Profissional</span>
+            <span class="plan-price">R$ 149<small>/mês</small></span>
+          </div>
+          <div class="plan">
+            <span class="plan-name">Premium</span>
+            <span class="plan-price">R$ 249<small>/mês</small></span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ PORTFÓLIO ═══ -->
-  <section class="section portfolio-section" id="trabalho">
+  <!-- COMO FUNCIONA -->
+  <section class="section como-section" id="como-funciona">
     <div class="container">
-      <div class="section-label">Projetos</div>
-      <h2 class="section-title">Trabalhos <span class="stroke-text">recentes</span></h2>
+      <div class="section-tag">Simples assim</div>
+      <h2 class="section-title">Como <em>funciona</em></h2>
 
-      <div class="portfolio-grid">
-        <div class="porto-item reveal">
-          <div class="porto-inner">
-            <div class="porto-placeholder">
-              <span>🚀</span>
-              <p>Primeiro projeto <br/>chegando em breve</p>
-            </div>
-          </div>
-          <div class="porto-info">
-            <span class="porto-cat">Em breve</span>
-            <h4>Seu negócio pode ser o primeiro</h4>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-number">1</div>
+          <div class="step-body">
+            <h4>Você me manda as informações</h4>
+            <p>Nome do negócio, fotos, o que vende, cores que gosta e qualquer referência de site. Sem precisar entender nada de tecnologia.</p>
           </div>
         </div>
-        <div class="porto-item reveal">
-          <div class="porto-inner">
-            <div class="porto-placeholder">
-              <span>🔨</span>
-              <p>Projetos sendo<br/>finalizados</p>
-            </div>
+        <div class="step-arrow">→</div>
+        <div class="step reveal">
+          <div class="step-number">2</div>
+          <div class="step-body">
+            <h4>Eu desenvolvo o site</h4>
+            <p>Cuido do design, textos, SEO e toda a parte técnica. Você acompanha o progresso e pode pedir ajustes.</p>
           </div>
-          <div class="porto-info">
-            <span class="porto-cat">Em produção</span>
-            <h4>Cases serão publicados em breve</h4>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step reveal">
+          <div class="step-number">3</div>
+          <div class="step-body">
+            <h4>Site no ar em dias</h4>
+            <p>Publico o site, configuro o domínio e entrego tudo funcionando. Você já pode divulgar para os seus clientes.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ SOBRE ═══ -->
+  <!-- SOBRE -->
   <section class="section sobre-section" id="sobre">
-    <div class="container sobre-container">
-
-      <div class="sobre-left reveal">
-        <div class="sobre-avatar-wrap">
-          <div class="sobre-avatar">VH</div>
-          <div class="sobre-avatar-ring"></div>
-        </div>
-        <div class="sobre-tags">
+    <div class="container sobre-inner">
+      <div class="sobre-card reveal">
+        <div class="sobre-avatar">VH</div>
+        <div class="sobre-chips">
           <span>📍 Limeira – SP</span>
           <span>⚡ Entrega ágil</span>
           <span>🤝 Atendimento presencial</span>
           <span>✅ 100% profissional</span>
         </div>
       </div>
-
-      <div class="sobre-right reveal">
-        <div class="section-label">Quem sou eu</div>
-        <h2 class="section-title">Olá, sou o<br/><span class="accent">Vitor Hugo</span></h2>
+      <div class="sobre-text reveal">
+        <div class="section-tag">Quem sou eu</div>
+        <h2 class="section-title">Olá, sou o<br/><em>Vitor Hugo</em></h2>
         <p>Sou de Limeira – SP e criei a VH Web com um objetivo simples: colocar o seu negócio na internet de forma profissional, rápida e com preço justo.</p>
         <p>Você me envia as informações do seu negócio e eu cuido de tudo — do design à publicação. Entrego o site pronto, no prazo, sem enrolação e sem burocracia.</p>
-        <a href="https://wa.me/5519994669950" target="_blank" class="btn-main" data-cursor="btn">
-          <span>Falar agora</span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+        <p>Enquanto agências grandes cobram R$ 3.000 e demoram meses, eu entrego em dias — e você fala direto comigo.</p>
+        <a href="https://wa.me/5519994669950" target="_blank" class="btn-primary">Falar agora →</a>
       </div>
-
     </div>
   </section>
 
-  <!-- ═══ CTA FINAL ═══ -->
+  <!-- CTA FINAL -->
   <section class="cta-section">
-    <div class="cta-noise"></div>
-    <div class="cta-orb"></div>
+    <div class="cta-glow"></div>
     <div class="container cta-inner reveal">
-      <span class="cta-tag">Vamos começar?</span>
+      <div class="cta-tag">Vamos começar?</div>
       <h2>Seu site pronto<br/>em <em>dias, não meses</em></h2>
-      <p>Me manda uma mensagem agora e te envio uma proposta no mesmo dia.</p>
-      <!-- TROQUE O NÚMERO ABAIXO -->
-      <a href="https://wa.me/5519994669950?text=Ol%C3%A1%20Vitor%2C%20vi%20seu%20site%20e%20quero%20um%20or%C3%A7amento!" target="_blank" class="btn-main btn-main--lg" data-cursor="btn">
+      <p>Me manda uma mensagem e te envio uma proposta no mesmo dia.</p>
+      <a href="https://wa.me/5519994669950?text=Ol%C3%A1%20Vitor%2C%20vi%20seu%20site%20e%20quero%20um%20or%C3%A7amento!" target="_blank" class="btn-primary btn-primary--lg">
         <svg width="22" height="22" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.549 4.106 1.51 5.835L.057 23.243a.75.75 0 0 0 .921.921l5.344-1.464A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.898 0-3.671-.516-5.19-1.413l-.371-.219-3.853 1.055 1.025-3.744-.238-.386A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-        <span>Chamar no WhatsApp</span>
+        Chamar no WhatsApp
       </a>
     </div>
   </section>
 
-  <!-- ═══ FOOTER ═══ -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-inner">
-      <a href="#" class="nav__logo">VH<em>Web</em></a>
+      <a href="#" class="logo">VH<span>Web</span></a>
       <p>Sites profissionais para o seu negócio · Limeira – SP</p>
       <p class="footer-copy">© <span id="year"></span> VH Web – Vitor Hugo</p>
     </div>
