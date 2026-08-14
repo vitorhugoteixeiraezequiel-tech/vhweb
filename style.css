@@ -125,6 +125,13 @@ em { font-style: normal; color: var(--accent); }
   max-width: 1120px; margin: 0 auto;
 }
 
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 3rem;
+  align-items: center;
+}
+
 .hero-bg-grid {
   position: fixed; inset: 0; z-index: -1;
   background-image:
@@ -173,8 +180,6 @@ em { font-style: normal; color: var(--accent); }
 
 /* Floating cards */
 .floating-cards {
-  position: absolute; right: 0; top: 50%;
-  transform: translateY(-50%);
   display: flex; flex-direction: column; gap: 1rem;
   pointer-events: none;
 }
@@ -410,6 +415,7 @@ em { font-style: normal; color: var(--accent); }
 
 /* ── MOBILE ──────────────────────────── */
 @media (max-width: 960px) {
+  .hero-grid { grid-template-columns: 1fr; }
   .floating-cards { display: none; }
   .sobre-inner { grid-template-columns: 1fr; gap: 3rem; }
   .sobre-card { max-width: 400px; margin: 0 auto; }
