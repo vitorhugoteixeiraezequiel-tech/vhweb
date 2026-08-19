@@ -1,319 +1,859 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VH Web – Sites que vendem de verdade</title>
-  <meta name="description" content="VH Web cria sites profissionais para o seu negócio. Rápido, bonito e no Google." />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+<title>VH Web</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FFFFFF;
+  --bg2:#F7F8FA;
+  --fg:#0D0E12;
+  --fg2:#4A4D58;
+  --border:#E4E6EC;
+  --blue:#2D3FC8;
+  --blue-light:#EAECF8;
+  --blue-dark:#1E2E9E;
+  --black:#0D0E12;
+  --white:#FFFFFF;
+  --ff:-apple-system,'Segoe UI',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--ff);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.w{max-width:1160px;margin:0 auto;padding:0 2.5rem}
 
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-follower" id="follower"></div>
+/* ── NAV ── */
+.nav{background:var(--white);border-bottom:1px solid var(--border);padding:1rem 0;position:sticky;top:0;z-index:100}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.logo{display:inline-flex;align-items:center;gap:.8rem;text-decoration:none}
+.logo-icon{width:52px;height:52px;background:#2D3FC8;border-radius:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 3px 12px rgba(45,63,200,.4)}
+.logo-text{display:flex;flex-direction:column;line-height:1;gap:4px}
+.logo-name{font-weight:900;font-size:1.2rem;letter-spacing:.1em;color:var(--fg);text-transform:uppercase}
+.logo-bar{width:100%;height:3px;background:var(--blue);border-radius:2px}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{font-size:.85rem;font-weight:500;color:var(--fg2);transition:color .15s}
+.nav-links a:hover{color:var(--fg)}
+.nav-cta{padding:.48rem 1.2rem;background:var(--blue);color:#fff!important;border-radius:7px;font-weight:700;font-size:.82rem;transition:background .15s}
+.nav-cta:hover{background:var(--blue-dark)}
 
-  <!-- NAV -->
-  <header class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="#" class="logo">VH<span>Web</span></a>
-      <nav class="nav-links" id="navLinks">
-        <a href="#servicos">Serviços</a>
-        <a href="#como-funciona">Como funciona</a>
-        <a href="#sobre">Sobre</a>
-        <a href="https://wa.me/5519994669950" target="_blank" class="nav-btn">Falar agora →</a>
-      </nav>
-      <button class="burger" id="burger"><span></span><span></span></button>
-    </div>
-  </header>
+/* ── HERO ── */
+.hero{background:var(--bg);padding:5.5rem 0 4.5rem;border-bottom:1px solid var(--border)}
+.hero-inner{display:grid;grid-template-columns:1fr 460px;gap:4rem;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .9rem;background:var(--blue-light);border:1px solid rgba(0,153,238,.2);border-radius:20px;font-size:.72rem;font-weight:700;color:var(--blue);letter-spacing:.04em;margin-bottom:1.6rem}
+.hero-badge span{width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0}
+.hero h1{font-size:clamp(2.6rem,4vw,3.8rem);font-weight:800;line-height:1.08;letter-spacing:-2px;color:var(--fg);margin-bottom:1.3rem;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--blue)}
+.hero-sub{font-size:1rem;color:var(--fg2);line-height:1.82;margin-bottom:2.2rem;max-width:42ch}
+.hero-btns{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:3rem}
+.btn-primary{padding:.75rem 1.6rem;background:var(--blue);color:#fff;border-radius:7px;font-weight:700;font-size:.9rem;display:inline-flex;align-items:center;gap:.45rem;transition:background .15s}
+.btn-primary:hover{background:var(--blue-dark)}
+.btn-outline{padding:.75rem 1.6rem;border:1.5px solid var(--border);color:var(--fg);border-radius:7px;font-weight:600;font-size:.9rem;transition:border-color .15s,color .15s}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+.hero-stats{display:flex;gap:2.5rem;border-top:1px solid var(--border);padding-top:2rem}
+.hstat-n{font-size:1.85rem;font-weight:800;letter-spacing:-1px;color:var(--fg);font-variant-numeric:tabular-nums}
+.hstat-n em{font-style:normal;color:var(--blue)}
+.hstat-l{font-size:.73rem;color:var(--fg2);margin-top:.1rem}
 
-  <!-- HERO -->
-  <section class="hero" id="inicio">
-    <div class="hero-bg-grid"></div>
+/* Phone mockup */
+.phone-wrap{position:relative;display:flex;justify-content:center;padding:1rem 3rem 1rem 1rem}
+.phone{width:224px;background:#1a1c22;border:2px solid rgba(0,0,0,.08);border-radius:38px;overflow:hidden;box-shadow:0 32px 72px rgba(0,0,0,.15),0 8px 24px rgba(0,0,0,.08),0 0 0 1px rgba(0,0,0,.06);position:relative}
+.phone-notch{width:72px;height:22px;background:#1a1c22;border-radius:0 0 14px 14px;margin:0 auto;position:relative;z-index:2}
+.phone-screen{background:#fff;min-height:430px;overflow:hidden}
+.phone-site-nav{background:#0B0C0E;padding:.5rem .75rem;display:flex;justify-content:space-between;align-items:center}
+.psn-logo{font-size:.6rem;font-weight:800;color:#fff}
+.psn-logo span{color:#FF8C00}
+.psn-btn{font-size:.5rem;padding:.2rem .5rem;background:#FF8C00;color:#fff;border-radius:3px;font-weight:700}
+.phone-hero{background:linear-gradient(160deg,#0B0C0E 55%,#1a1208);padding:1rem .75rem}
+.ph-tag{font-size:.48rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#FF9D2E;margin-bottom:.4rem}
+.ph-h{font-size:.95rem;font-weight:800;color:#fff;line-height:1.15;letter-spacing:-.5px;margin-bottom:.35rem}
+.ph-p{font-size:.5rem;color:rgba(255,255,255,.5);margin-bottom:.65rem;line-height:1.5}
+.ph-btn{display:inline-block;padding:.3rem .65rem;background:#FF8C00;color:#fff;border-radius:4px;font-size:.55rem;font-weight:700}
+.phone-strip{display:grid;grid-template-columns:repeat(3,1fr);padding:.45rem .75rem;background:#f8f8f8;border-top:1px solid #eee}
+.ps-item{text-align:center;font-size:.46rem;color:#666;padding:.2rem 0}
+.ps-icon{font-size:.7rem;display:block;margin-bottom:.08rem}
+.phone-section{padding:.6rem .75rem;border-top:1px solid #f0f0f0}
+.phone-s-title{font-size:.48rem;font-weight:700;color:#111;margin-bottom:.35rem;letter-spacing:.05em;text-transform:uppercase}
+.phone-s-item{display:flex;align-items:center;gap:.35rem;padding:.22rem 0;border-bottom:1px solid #f5f5f5}
+.phone-s-item:last-child{border:none}
+.phone-s-dot{width:5px;height:5px;border-radius:50%;background:#FF8C00;flex-shrink:0}
+.phone-s-text{font-size:.46rem;color:#444}
+.phone-cta-bar{padding:.5rem .75rem;background:#0B0C0E;text-align:center}
+.phone-cta-btn{display:inline-block;padding:.28rem .7rem;background:#25D366;color:#fff;border-radius:4px;font-size:.52rem;font-weight:700}
+.float-b1{position:absolute;top:1.5rem;right:.5rem;background:#fff;border-radius:10px;padding:.55rem .85rem;display:flex;align-items:center;gap:.5rem;box-shadow:0 4px 20px rgba(0,0,0,.12);font-size:.74rem;font-weight:700;color:var(--fg);white-space:nowrap;border:1px solid var(--border)}
+.float-b1-dot{width:7px;height:7px;border-radius:50%;background:#25D366;flex-shrink:0}
+.float-b2{position:absolute;bottom:1.5rem;left:.2rem;background:#fff;border-radius:10px;padding:.55rem .85rem;display:flex;align-items:center;gap:.5rem;box-shadow:0 4px 20px rgba(0,0,0,.12);font-size:.74rem;font-weight:700;color:var(--fg);border:1px solid var(--border)}
+.float-b2 em{font-style:normal;color:var(--blue)}
 
-    <div class="hero-grid">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span class="pulse"></span>
-          Disponível para novos projetos · Limeira – SP
-        </div>
+/* ── MARQUEE ── */
+.marquee-wrap{background:var(--blue);overflow:hidden;padding:.8rem 0}
+.marquee-track{display:flex;gap:2.5rem;white-space:nowrap;animation:scroll 30s linear infinite;width:max-content}
+.marquee-track span{font-size:.73rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.92)}
+.marquee-track em{color:rgba(255,255,255,.35);font-style:normal}
+@keyframes scroll{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
 
-        <h1 class="hero-title">
-          Seu negócio merece<br/>
-          estar na internet<br/>
-          <span class="typed-wrap">de <span class="typed" id="typed"></span></span>
-        </h1>
+/* ── SHARED SECTION ── */
+.sec{padding:6rem 0}
+.sec--alt{background:var(--bg2)}
+.sec--dark{background:var(--black);padding:6rem 0}
+.eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--fg2);margin-bottom:.9rem}
+.eyebrow-l{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:.9rem}
+.sh{font-size:clamp(1.9rem,3.2vw,2.75rem);font-weight:800;letter-spacing:-1.4px;line-height:1.1;color:var(--fg);text-wrap:balance;margin-bottom:3rem}
+.sh-l{font-size:clamp(1.9rem,3.2vw,2.75rem);font-weight:800;letter-spacing:-1.4px;line-height:1.1;color:#fff;text-wrap:balance;margin-bottom:3rem}
+.sh em,.sh-l em{font-style:normal;color:var(--blue)}
 
-        <p class="hero-desc">
-          Você me manda as informações do seu negócio<br/>
-          e eu entrego um site profissional, rápido e no Google.
-        </p>
+/* ── PORTFOLIO ── */
+.port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.port-card{border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--white);transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column}
+.port-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.1);transform:translateY(-3px)}
+.port-mock{height:200px;overflow:hidden;position:relative;flex-shrink:0}
+.port-info{padding:1.2rem 1.4rem 1.4rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.port-name{font-size:.95rem;font-weight:700;color:var(--fg)}
+.port-desc{font-size:.8rem;color:var(--fg2);line-height:1.6;flex:1}
+.port-footer{display:flex;align-items:center;justify-content:space-between;padding-top:.8rem;border-top:1px solid var(--border);margin-top:.6rem}
+.port-tag{font-size:.68rem;font-weight:600;padding:.18rem .6rem;background:var(--blue-light);color:var(--blue);border-radius:4px}
+.port-link{font-size:.78rem;font-weight:700;color:var(--blue);display:inline-flex;align-items:center;gap:.3rem;transition:gap .15s}
+.port-link:hover{gap:.5rem}
+/* mockup internos */
+.mk{width:100%;height:100%;display:flex;flex-direction:column;font-family:var(--ff)}
+/* A Adega */
+.mk-adega{background:#F5EFE0}
+.mk-adega .mk-nav{background:#fff;padding:.4rem .8rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e8e0d0}
+.mk-adega .mk-logo{font-weight:800;font-size:.65rem;color:#1a1a1a;display:flex;align-items:center;gap:.3rem}
+.mk-adega .mk-logo-icon{width:16px;height:16px;background:#FF6B2B;border-radius:4px;display:inline-block}
+.mk-adega .mk-nav-btn{font-size:.5rem;padding:.2rem .55rem;background:#FF6B2B;color:#fff;border-radius:4px;font-weight:700}
+.mk-adega .mk-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.8rem;text-align:center}
+.mk-adega .mk-tag{font-size:.45rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#2D5016;color:#fff;padding:.2rem .6rem;border-radius:20px;margin-bottom:.55rem}
+.mk-adega .mk-h1{font-size:1.4rem;font-weight:900;line-height:1;color:#1a1a1a;margin-bottom:.2rem;letter-spacing:-1px}
+.mk-adega .mk-h1 span{color:#FF6B2B;display:block}
+.mk-adega .mk-p{font-size:.45rem;color:#555;line-height:1.4;margin-bottom:.6rem;max-width:22ch}
+.mk-adega .mk-btns{display:flex;gap:.35rem}
+.mk-adega .mk-btn1{font-size:.5rem;padding:.28rem .65rem;background:#FF6B2B;color:#fff;border-radius:4px;font-weight:700}
+.mk-adega .mk-btn2{font-size:.5rem;padding:.28rem .65rem;border:1.5px solid #1a1a1a;color:#1a1a1a;border-radius:4px;font-weight:700}
+/* Ultra 3D */
+.mk-u3d{background:#0a0a0f}
+.mk-u3d .mk-nav{background:#12121a;padding:.4rem .8rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.08)}
+.mk-u3d .mk-logo{font-weight:800;font-size:.6rem;color:#fff}
+.mk-u3d .mk-logo span{color:#00CCFF}
+.mk-u3d .mk-nav-btn{font-size:.48rem;padding:.2rem .5rem;background:#00CCFF;color:#000;border-radius:3px;font-weight:700}
+.mk-u3d .mk-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.8rem;text-align:center}
+.mk-u3d .mk-tag{font-size:.43rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#00CCFF;margin-bottom:.45rem}
+.mk-u3d .mk-h1{font-size:.95rem;font-weight:800;line-height:1.1;color:#fff;margin-bottom:.4rem;letter-spacing:-.5px}
+.mk-u3d .mk-h1 span{color:#00CCFF}
+.mk-u3d .mk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.3rem;margin-top:.5rem}
+.mk-u3d .mk-item{background:#1a1a2e;border:1px solid rgba(0,204,255,.15);border-radius:5px;padding:.4rem .3rem;text-align:center;font-size:.42rem;color:rgba(255,255,255,.6)}
+.mk-u3d .mk-item-icon{font-size:.85rem;display:block;margin-bottom:.15rem}
+/* OdontoPrint */
+.mk-odonto{background:#f0f6ff}
+.mk-odonto .mk-nav{background:#fff;padding:.4rem .8rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #dde8f5}
+.mk-odonto .mk-logo{font-weight:800;font-size:.6rem;color:#0057B8}
+.mk-odonto .mk-logo span{color:#00A878}
+.mk-odonto .mk-nav-btn{font-size:.48rem;padding:.2rem .5rem;background:#0057B8;color:#fff;border-radius:3px;font-weight:700}
+.mk-odonto .mk-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.8rem;text-align:center}
+.mk-odonto .mk-badge{font-size:.42rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#E8F4FF;color:#0057B8;border:1px solid #c0d8f0;padding:.2rem .55rem;border-radius:20px;margin-bottom:.5rem}
+.mk-odonto .mk-h1{font-size:.95rem;font-weight:800;line-height:1.1;color:#0a1628;margin-bottom:.35rem;letter-spacing:-.4px}
+.mk-odonto .mk-h1 span{color:#0057B8}
+.mk-odonto .mk-p{font-size:.44rem;color:#555;line-height:1.45;margin-bottom:.6rem;max-width:24ch}
+.mk-odonto .mk-btn{font-size:.5rem;padding:.28rem .75rem;background:#0057B8;color:#fff;border-radius:4px;font-weight:700}
+.mk-odonto .mk-pills{display:flex;gap:.3rem;margin-top:.4rem;flex-wrap:wrap;justify-content:center}
+.mk-odonto .mk-pill{font-size:.4rem;padding:.15rem .4rem;background:#fff;border:1px solid #dde8f5;border-radius:3px;color:#0057B8;font-weight:600}
+/* Ultra DICOM */
+.mk-dicom{background:#07111f}
+.mk-dicom .mk-nav{background:#0d1d30;padding:.4rem .8rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.07)}
+.mk-dicom .mk-logo{font-weight:800;font-size:.6rem;color:#fff}
+.mk-dicom .mk-logo span{color:#38B2FF}
+.mk-dicom .mk-nav-btn{font-size:.48rem;padding:.2rem .5rem;background:#38B2FF;color:#000;border-radius:3px;font-weight:700}
+.mk-dicom .mk-body{flex:1;display:flex;gap:.6rem;padding:.7rem;align-items:center}
+.mk-dicom .mk-left{flex:1}
+.mk-dicom .mk-tag{font-size:.41rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#38B2FF;margin-bottom:.4rem}
+.mk-dicom .mk-h1{font-size:.85rem;font-weight:800;color:#fff;line-height:1.15;letter-spacing:-.3px;margin-bottom:.35rem}
+.mk-dicom .mk-h1 span{color:#38B2FF}
+.mk-dicom .mk-p{font-size:.42rem;color:rgba(255,255,255,.45);line-height:1.4;margin-bottom:.5rem}
+.mk-dicom .mk-btn{font-size:.48rem;padding:.25rem .6rem;background:#38B2FF;color:#000;border-radius:3px;font-weight:700}
+.mk-dicom .mk-right{width:60px;flex-shrink:0;display:flex;flex-direction:column;gap:.25rem}
+.mk-dicom .mk-xray{background:#1a2d40;border:1px solid rgba(56,178,255,.2);border-radius:4px;height:42px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.mk-dicom .mk-stats{display:flex;flex-direction:column;gap:.2rem}
+.mk-dicom .mk-stat{background:#0d1d30;border:1px solid rgba(255,255,255,.07);border-radius:3px;padding:.2rem .3rem;font-size:.38rem;color:rgba(255,255,255,.5);text-align:center}
+.mk-dicom .mk-stat span{display:block;font-weight:700;color:#38B2FF;font-size:.48rem}
+/* UltraSistem */
+.mk-ultra{background:#f4f7fb}
+.mk-ultra .mk-nav{background:#fff;padding:.4rem .8rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e2e8f0}
+.mk-ultra .mk-logo{font-weight:800;font-size:.6rem;color:#1a2942}
+.mk-ultra .mk-logo span{color:#4F46E5}
+.mk-ultra .mk-nav-btn{font-size:.48rem;padding:.2rem .5rem;background:#4F46E5;color:#fff;border-radius:3px;font-weight:700}
+.mk-ultra .mk-body{flex:1;display:flex;flex-direction:column;padding:.6rem}
+.mk-ultra .mk-hero{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:.5rem}
+.mk-ultra .mk-tag{font-size:.4rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#4F46E5;margin-bottom:.35rem}
+.mk-ultra .mk-h1{font-size:.85rem;font-weight:800;color:#1a2942;line-height:1.1;letter-spacing:-.3px;margin-bottom:.3rem}
+.mk-ultra .mk-h1 span{color:#4F46E5}
+.mk-ultra .mk-btn{font-size:.48rem;padding:.25rem .6rem;background:#4F46E5;color:#fff;border-radius:4px;font-weight:700}
+.mk-ultra .mk-dash{display:grid;grid-template-columns:repeat(3,1fr);gap:.3rem;margin-top:.4rem}
+.mk-ultra .mk-dcard{background:#fff;border:1px solid #e2e8f0;border-radius:5px;padding:.35rem .4rem}
+.mk-ultra .mk-dcard-n{font-size:.6rem;font-weight:800;color:#1a2942;font-variant-numeric:tabular-nums}
+.mk-ultra .mk-dcard-n span{color:#4F46E5}
+.mk-ultra .mk-dcard-l{font-size:.38rem;color:#718096}
 
-        <div class="hero-cta">
-          <a href="https://wa.me/5519994669950?text=Quero+um+site" target="_blank" class="btn-primary">
-            Quero meu site agora
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a href="#servicos" class="btn-outline">Ver serviços</a>
-        </div>
+/* ── SERVIÇOS ── */
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:3rem}
+.svc-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:2rem 1.8rem;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:all .22s ease}
+.svc-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,153,238,.22);border-color:var(--blue);background:var(--blue)}
+.svc-card-glow{position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:50%;background:rgba(0,153,238,.04);pointer-events:none;transition:background .22s}
+.svc-card:hover .svc-card-glow{background:rgba(255,255,255,.12)}
+.svc-icon{font-size:2rem;margin-bottom:1.3rem;display:block}
+.svc-hot-badge{display:inline-flex;align-items:center;gap:.35rem;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);background:var(--blue-light);border-radius:20px;padding:.22rem .65rem;margin-bottom:.9rem;transition:all .22s}
+.svc-card:hover .svc-hot-badge{color:rgba(255,255,255,.9);background:rgba(255,255,255,.18)}
+.svc-name{font-size:1.1rem;font-weight:800;color:var(--fg);margin-bottom:.5rem;letter-spacing:-.3px;line-height:1.2;transition:color .22s}
+.svc-card:hover .svc-name{color:#fff}
+.svc-desc{font-size:.8rem;color:var(--fg2);line-height:1.7;flex:1;margin-bottom:1.4rem;transition:color .22s}
+.svc-card:hover .svc-desc{color:rgba(255,255,255,.82)}
+.svc-price-row{display:flex;align-items:baseline;gap:.4rem;margin-bottom:.35rem}
+.svc-price{font-size:1.6rem;font-weight:800;color:var(--fg);letter-spacing:-1px;font-variant-numeric:tabular-nums;transition:color .22s}
+.svc-card:hover .svc-price{color:#fff}
+.svc-price-from{font-size:.72rem;color:var(--fg2);font-weight:500;transition:color .22s}
+.svc-card:hover .svc-price-from{color:rgba(255,255,255,.75)}
+.svc-prazo{font-size:.72rem;color:var(--fg2);margin-bottom:1.4rem;transition:color .22s}
+.svc-card:hover .svc-prazo{color:rgba(255,255,255,.75)}
+.svc-feats{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.5rem}
+.svc-feat{display:flex;align-items:center;gap:.5rem;font-size:.75rem;color:var(--fg2);transition:color .22s}
+.svc-card:hover .svc-feat{color:rgba(255,255,255,.88)}
+.svc-feat-dot{width:5px;height:5px;border-radius:50%;background:var(--blue);flex-shrink:0;transition:background .22s}
+.svc-card:hover .svc-feat-dot{background:rgba(255,255,255,.7)}
+.btn-svc-card{display:block;text-align:center;padding:.62rem;background:var(--bg2);color:var(--fg);border-radius:8px;font-size:.8rem;font-weight:700;transition:all .22s;border:1.5px solid var(--border)}
+.svc-card:hover .btn-svc-card{background:rgba(0,0,0,.15);color:#fff;border-color:rgba(0,0,0,.1)}
+/* manutenção */
+.manut{margin-top:2.5rem;padding:2.2rem 2.5rem;background:var(--white);border:1px solid var(--border);border-radius:14px;display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap;position:relative;overflow:hidden}
+.manut::before{content:'';position:absolute;top:-30px;left:-30px;width:100px;height:100px;border-radius:50%;background:rgba(0,153,238,.05);pointer-events:none}
+.manut-left h3{font-size:1rem;font-weight:800;color:var(--fg);margin-bottom:.3rem}
+.manut-left p{font-size:.82rem;color:var(--fg2)}
+.mplans{display:flex;gap:.75rem}
+.mp{padding:.9rem 1.4rem;background:var(--bg2);border:1px solid var(--border);border-radius:10px;text-align:center;min-width:90px}
+.mp--hot{background:var(--blue-light);border-color:rgba(0,153,238,.3)}
+.mp-n{font-size:.65rem;font-weight:600;color:var(--fg2);margin-bottom:.2rem;letter-spacing:.04em;text-transform:uppercase}
+.mp--hot .mp-n{color:var(--blue)}
+.mp-p{font-size:1.1rem;font-weight:800;color:var(--fg);font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+.mp-p small{font-size:.62rem;font-weight:400;color:var(--fg2)}
+
+/* ── DIFERENCIAIS ── */
+.diff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:3rem}
+.diff-card{padding:2rem 1.5rem;background:var(--white);transition:background .2s}
+.diff-card:hover{background:var(--bg2)}
+.diff-icon{font-size:1.6rem;margin-bottom:1rem;display:block}
+.diff-card h3{font-size:.9rem;font-weight:700;color:var(--fg);margin-bottom:.45rem;line-height:1.35}
+.diff-card p{font-size:.8rem;color:var(--fg2);line-height:1.7}
+.depo{margin-top:2rem;padding:2.4rem;background:var(--bg2);border:1px solid var(--border);border-radius:12px;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center}
+.depo-text{font-size:1rem;color:var(--fg);font-style:italic;line-height:1.82}
+.depo-author{text-align:right;flex-shrink:0}
+.depo-av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#FF8C00,#FF5500);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.82rem;color:#fff;margin:0 auto .55rem}
+.depo-name{font-size:.83rem;font-weight:700;color:var(--fg)}
+.depo-biz{font-size:.73rem;color:var(--fg2)}
+.depo-stars{color:#F59E0B;font-size:.82rem;margin-bottom:.35rem}
+
+/* ── COMO FUNCIONA ── */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.step{padding:2rem;background:var(--white);border:1px solid var(--border);border-radius:12px}
+.step-n{width:34px;height:34px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:800;color:#fff;margin-bottom:1.1rem}
+.step h4{font-size:.93rem;font-weight:700;color:var(--fg);margin-bottom:.38rem}
+.step p{font-size:.82rem;color:var(--fg2);line-height:1.7}
+
+/* ── SOBRE ── */
+.sobre-sec{background:var(--bg2);padding:6rem 0}
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.sobre-left{display:flex;flex-direction:column;gap:1rem}
+.sobre-profile{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:2rem;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.06)}
+.sobre-profile::before{content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(0,153,238,.08) 0%,transparent 70%);pointer-events:none}
+.sobre-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--blue),#0055bb);display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:800;color:#fff;margin-bottom:1rem;border:3px solid rgba(0,153,238,.2);flex-shrink:0}
+.sobre-profile-name{font-size:1.1rem;font-weight:800;color:var(--fg);margin-bottom:.2rem}
+.sobre-profile-role{font-size:.78rem;color:var(--fg2);margin-bottom:1.2rem}
+.sobre-profile-divider{width:100%;height:1px;background:var(--border);margin-bottom:1.2rem}
+.sobre-profile-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;width:100%}
+.sobre-stat{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:.7rem .4rem}
+.sobre-stat-n{font-size:1.2rem;font-weight:800;color:var(--fg);letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.sobre-stat-n em{font-style:normal;color:var(--blue)}
+.sobre-stat-l{font-size:.58rem;color:var(--fg2);margin-top:.1rem;line-height:1.3}
+.sobre-skills{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.sobre-skill{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1rem 1.1rem;display:flex;align-items:center;gap:.75rem;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.sobre-skill-icon{font-size:1.3rem;flex-shrink:0}
+.sobre-skill-name{font-size:.78rem;font-weight:700;color:var(--fg);line-height:1.3}
+.sobre-skill-sub{font-size:.65rem;color:var(--fg2);margin-top:.1rem}
+/* texto lado direito */
+.sobre-text-side .eyebrow{margin-bottom:.9rem}
+.sobre-title{font-size:clamp(2rem,3vw,2.6rem);font-weight:800;letter-spacing:-1.5px;line-height:1.1;color:var(--fg);margin-bottom:1.8rem;text-wrap:balance}
+.sobre-title em{font-style:normal;color:var(--blue)}
+.sobre-text-side p{font-size:.92rem;color:var(--fg2);line-height:1.85;margin-bottom:1rem}
+.sobre-text-side p strong{color:var(--fg);font-weight:600}
+.sobre-quote{margin-top:1.5rem;padding:1.2rem 1.4rem;background:var(--blue-light);border-left:3px solid var(--blue);border-radius:0 8px 8px 0}
+.sobre-quote p{font-size:.85rem;color:var(--blue-dark);line-height:1.7;margin:0;font-style:italic}
+
+/* ── FAQ ── */
+.faq-wrap{display:grid;grid-template-columns:320px 1fr;gap:6rem;align-items:start}
+.faq-intro p{font-size:.88rem;color:var(--fg2);line-height:1.78;margin-top:1rem}
+.faq-list{display:flex;flex-direction:column}
+.faq-item{border-top:1px solid var(--border)}
+.faq-item:last-child{border-bottom:1px solid var(--border)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;cursor:pointer;gap:1rem;background:none;border:none;width:100%;text-align:left}
+.faq-q span{font-size:.9rem;font-weight:600;color:var(--fg)}
+.faq-ico{width:22px;height:22px;border:1.5px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;color:var(--fg2);flex-shrink:0;transition:all .2s;line-height:1}
+.faq-item.open .faq-ico{background:var(--blue);border-color:var(--blue);color:#fff}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-a p{font-size:.84rem;color:var(--fg2);line-height:1.75;padding-bottom:1.25rem}
+.faq-item.open .faq-a{max-height:200px}
+
+/* ── CTA ── */
+.cta-sec{background:linear-gradient(135deg,var(--black) 0%,#0a1628 100%);padding:7rem 0}
+.cta-wrap{text-align:center}
+.cta-ey{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:1.1rem}
+.cta-wrap h2{font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:800;letter-spacing:-2px;line-height:1.07;color:#fff;margin-bottom:1rem;text-wrap:balance}
+.cta-wrap h2 em{font-style:normal;color:var(--blue)}
+.cta-wrap>p{font-size:.92rem;color:rgba(255,255,255,.55);margin-bottom:2.5rem}
+.btn-wa{display:inline-flex;align-items:center;gap:.65rem;padding:.9rem 2rem;background:#25D366;color:#fff;border-radius:7px;font-weight:700;font-size:.95rem;transition:background .15s}
+.btn-wa:hover{background:#1da855}
+.cta-note{margin-top:1.2rem;font-size:.73rem;color:rgba(255,255,255,.2)}
+
+/* ── FOOTER ── */
+.footer{background:var(--black);border-top:1px solid rgba(255,255,255,.06);padding:2rem 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.f-logo{display:inline-flex;align-items:center;gap:.55rem}
+.f-logo-icon{width:28px;height:28px;background:rgba(0,153,238,.3);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.f-logo-name{font-weight:900;font-size:.95rem;letter-spacing:.04em;color:rgba(255,255,255,.3)}
+.footer p{font-size:.76rem;color:rgba(255,255,255,.2)}
+</style>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="w nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <svg width="36" height="34" viewBox="0 0 100 88" fill="none">
+          <path fill-rule="evenodd" d="M0,0 L100,0 L50,88 Z M28,0 L72,0 L50,44 Z" fill="white"/>
+        </svg>
       </div>
-
-      <!-- Cards flutuantes -->
-      <div class="floating-cards">
-        <div class="f-card f-card--1">
-          <span class="f-card-icon">⚡</span>
-          <div>
-            <strong>3 dias</strong>
-            <small>entrega mínima</small>
-          </div>
-        </div>
-        <div class="f-card f-card--2">
-          <span class="f-card-icon">✅</span>
-          <div>
-            <strong>Site aprovado!</strong>
-            <small>Padaria do Rei · Limeira</small>
-          </div>
-        </div>
-        <div class="f-card f-card--3">
-          <span class="f-card-icon">📈</span>
-          <div>
-            <strong>+240 visitas</strong>
-            <small>primeiro mês</small>
-          </div>
-        </div>
+      <div class="logo-text">
+        <span class="logo-name">VH WEB</span>
+        <div class="logo-bar"></div>
       </div>
-    </div>
-
-    <!-- Stats -->
-    <div class="hero-stats">
-      <div class="stat-item">
-        <span class="stat-num"><span class="counter" data-target="3">0</span> dias</span>
-        <span class="stat-label">prazo mínimo</span>
-      </div>
-      <div class="stat-sep"></div>
-      <div class="stat-item">
-        <span class="stat-num">R$ <span class="counter" data-target="400">0</span></span>
-        <span class="stat-label">a partir de</span>
-      </div>
-      <div class="stat-sep"></div>
-      <div class="stat-item">
-        <span class="stat-num"><span class="counter" data-target="100">0</span>%</span>
-        <span class="stat-label">feito por você</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- MARQUEE -->
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      <span>Landing Page</span><em>✦</em>
-      <span>Site Institucional</span><em>✦</em>
-      <span>Loja Virtual</span><em>✦</em>
-      <span>Google Meu Negócio</span><em>✦</em>
-      <span>Entrega em 3 dias</span><em>✦</em>
-      <span>Suporte Mensal</span><em>✦</em>
-      <span>SEO Local</span><em>✦</em>
-      <span>Limeira – SP</span><em>✦</em>
-      <span>Landing Page</span><em>✦</em>
-      <span>Site Institucional</span><em>✦</em>
-      <span>Loja Virtual</span><em>✦</em>
-      <span>Google Meu Negócio</span><em>✦</em>
-      <span>Entrega em 3 dias</span><em>✦</em>
-      <span>Suporte Mensal</span><em>✦</em>
-      <span>SEO Local</span><em>✦</em>
-      <span>Limeira – SP</span><em>✦</em>
+    </a>
+    <div class="nav-links">
+      <a href="#portfolio">Portfólio</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://wa.me/5519994669950" class="nav-cta">Falar no WhatsApp →</a>
     </div>
   </div>
+</nav>
 
-  <!-- SERVIÇOS -->
-  <section class="section" id="servicos">
-    <div class="container">
-      <div class="section-tag">O que eu faço</div>
-      <h2 class="section-title">Serviços <em>&</em> preços</h2>
-
-      <div class="services-list">
-
-        <div class="service-row reveal">
-          <div class="service-num">01</div>
-          <div class="service-info">
-            <h3>Landing Page <span class="service-price">R$ 400</span></h3>
-            <p>Uma página poderosa para divulgar seu negócio, capturar contatos e converter visitantes em clientes. Com botão direto pro WhatsApp e SEO básico.</p>
-            <div class="service-tags">
-              <span>Design profissional</span>
-              <span>WhatsApp integrado</span>
-              <span>SEO básico</span>
-              <span>Mobile first</span>
-            </div>
-          </div>
-          <div class="service-meta">
-            <div class="service-prazo">⚡ 3 dias úteis</div>
-            <a href="https://wa.me/5519994669950" target="_blank" class="service-btn">Pedir →</a>
-          </div>
-        </div>
-
-        <div class="service-row service-row--featured reveal">
-          <div class="service-num">02</div>
-          <div class="service-info">
-            <h3>Site Institucional <span class="service-price">R$ 700 – R$ 950</span></h3>
-            <p>Site completo com todas as páginas que seu negócio precisa. Galeria de fotos, mapa, redes sociais e SEO completo para aparecer no Google.</p>
-            <div class="service-tags">
-              <span>Até 5 páginas</span>
-              <span>Galeria de fotos</span>
-              <span>Google Maps</span>
-              <span>SEO completo</span>
-            </div>
-          </div>
-          <div class="service-meta">
-            <div class="service-badge">Mais pedido</div>
-            <div class="service-prazo">⚡ 5–10 dias úteis</div>
-            <a href="https://wa.me/5519994669950" target="_blank" class="service-btn">Pedir →</a>
-          </div>
-        </div>
-
-        <div class="service-row reveal">
-          <div class="service-num">03</div>
-          <div class="service-info">
-            <h3>Loja Virtual <span class="service-price">R$ 1.800</span></h3>
-            <p>Venda seus produtos online com carrinho, pagamento por PIX e cartão, e painel fácil de atualizar. Tudo pronto para faturar.</p>
-            <div class="service-tags">
-              <span>PIX e cartão</span>
-              <span>Até 100 produtos</span>
-              <span>Frete automático</span>
-              <span>Painel admin</span>
-            </div>
-          </div>
-          <div class="service-meta">
-            <div class="service-prazo">⚡ 14–21 dias úteis</div>
-            <a href="https://wa.me/5519994669950" target="_blank" class="service-btn">Pedir →</a>
-          </div>
-        </div>
-
-        <div class="service-row reveal">
-          <div class="service-num">04</div>
-          <div class="service-info">
-            <h3>Google Meu Negócio <span class="service-price">R$ 150</span></h3>
-            <p>Apareça no Google Maps quando alguém buscar pelo seu tipo de negócio. Criação, verificação e configuração completa.</p>
-            <div class="service-tags">
-              <span>Criação completa</span>
-              <span>Fotos e descrição</span>
-              <span>Google Maps</span>
-            </div>
-          </div>
-          <div class="service-meta">
-            <div class="service-prazo">⚡ 1–2 dias úteis</div>
-            <a href="https://wa.me/5519994669950" target="_blank" class="service-btn">Pedir →</a>
-          </div>
-        </div>
-
+<!-- HERO -->
+<div class="hero">
+  <div class="w hero-inner">
+    <div>
+      <div class="hero-badge"><span></span>Desenvolvimento web · Limeira – SP</div>
+      <h1>Sites que fazem seu negócio crescer de <em>verdade</em></h1>
+      <p class="hero-sub">Você me manda as informações e eu entrego um site profissional, rápido e que aparece no Google — sem enrolação e sem intermediários.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/5519994669950" class="btn-primary">Quero meu site agora →</a>
+        <a href="#portfolio" class="btn-outline">Ver meus trabalhos</a>
       </div>
-
-      <!-- Manutenção -->
-      <div class="manutencao-box reveal">
-        <div class="manutencao-left">
-          <span class="manutencao-icon">🔧</span>
-          <div>
-            <h3>Manutenção Mensal</h3>
-            <p>Site sempre seguro, atualizado e com suporte direto no WhatsApp — sem você precisar entender de tecnologia.</p>
-          </div>
-        </div>
-        <div class="manutencao-plans">
-          <div class="plan">
-            <span class="plan-name">Básico</span>
-            <span class="plan-price">R$ 79<small>/mês</small></span>
-          </div>
-          <div class="plan plan--accent">
-            <span class="plan-name">Profissional</span>
-            <span class="plan-price">R$ 149<small>/mês</small></span>
-          </div>
-          <div class="plan">
-            <span class="plan-name">Premium</span>
-            <span class="plan-price">R$ 249<small>/mês</small></span>
-          </div>
-        </div>
+      <div class="hero-stats">
+        <div><div class="hstat-n">3 <em>dias</em></div><div class="hstat-l">Prazo mínimo</div></div>
+        <div><div class="hstat-n">R$<em>400</em></div><div class="hstat-l">A partir de</div></div>
+        <div><div class="hstat-n">5+</div><div class="hstat-l">Clientes ativos</div></div>
       </div>
     </div>
-  </section>
-
-  <!-- COMO FUNCIONA -->
-  <section class="section como-section" id="como-funciona">
-    <div class="container">
-      <div class="section-tag">Simples assim</div>
-      <h2 class="section-title">Como <em>funciona</em></h2>
-
-      <div class="steps">
-        <div class="step reveal">
-          <div class="step-number">1</div>
-          <div class="step-body">
-            <h4>Você me manda as informações</h4>
-            <p>Nome do negócio, fotos, o que vende, cores que gosta e qualquer referência de site. Sem precisar entender nada de tecnologia.</p>
+    <div class="phone-wrap">
+      <div class="float-b1"><span class="float-b1-dot"></span>Site aprovado!</div>
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-site-nav">
+            <div class="psn-logo">🍞 Padaria do <span>Rei</span></div>
+            <div class="psn-btn">Cardápio</div>
           </div>
-        </div>
-        <div class="step-arrow">→</div>
-        <div class="step reveal">
-          <div class="step-number">2</div>
-          <div class="step-body">
-            <h4>Eu desenvolvo o site</h4>
-            <p>Cuido do design, textos, SEO e toda a parte técnica. Você acompanha o progresso e pode pedir ajustes.</p>
+          <div class="phone-hero">
+            <div class="ph-tag">⭐ Desde 1998 em Limeira</div>
+            <div class="ph-h">As melhores<br/>pães da cidade</div>
+            <div class="ph-p">Pão de queijo, baguete francesa<br/>e muito mais. Peça já!</div>
+            <div class="ph-btn">Pedir no WhatsApp →</div>
           </div>
-        </div>
-        <div class="step-arrow">→</div>
-        <div class="step reveal">
-          <div class="step-number">3</div>
-          <div class="step-body">
-            <h4>Site no ar em dias</h4>
-            <p>Publico o site, configuro o domínio e entrego tudo funcionando. Você já pode divulgar para os seus clientes.</p>
+          <div class="phone-strip">
+            <div class="ps-item"><span class="ps-icon">⭐</span>4.9 Google</div>
+            <div class="ps-item"><span class="ps-icon">📍</span>Limeira</div>
+            <div class="ps-item"><span class="ps-icon">⏰</span>6h–19h</div>
+          </div>
+          <div class="phone-section">
+            <div class="phone-s-title">Nossos produtos</div>
+            <div class="phone-s-item"><div class="phone-s-dot"></div><div class="phone-s-text">Pão francês — R$ 0,90 un.</div></div>
+            <div class="phone-s-item"><div class="phone-s-dot"></div><div class="phone-s-text">Pão de queijo — R$ 4,50</div></div>
+            <div class="phone-s-item"><div class="phone-s-dot"></div><div class="phone-s-text">Baguete francesa — R$ 8,00</div></div>
+          </div>
+          <div class="phone-cta-bar">
+            <div class="phone-cta-btn">💬 Chamar no WhatsApp</div>
           </div>
         </div>
       </div>
+      <div class="float-b2">+<em>240</em> visitas no 1º mês</div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- SOBRE -->
-  <section class="section sobre-section" id="sobre">
-    <div class="container sobre-inner">
-      <div class="sobre-card reveal">
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Landing Page</span><em>✦</em><span>Site Institucional</span><em>✦</em><span>Loja Virtual</span><em>✦</em><span>Google Meu Negócio</span><em>✦</em><span>SEO Local</span><em>✦</em><span>Suporte Mensal</span><em>✦</em><span>Entrega 3 dias</span><em>✦</em><span>Limeira – SP</span><em>✦</em>
+    <span>Landing Page</span><em>✦</em><span>Site Institucional</span><em>✦</em><span>Loja Virtual</span><em>✦</em><span>Google Meu Negócio</span><em>✦</em><span>SEO Local</span><em>✦</em><span>Suporte Mensal</span><em>✦</em><span>Entrega 3 dias</span><em>✦</em><span>Limeira – SP</span><em>✦</em>
+  </div>
+</div>
+
+<!-- PORTFÓLIO -->
+<section class="sec" id="portfolio">
+  <div class="w">
+    <div class="eyebrow">Portfólio</div>
+    <h2 class="sh">Sites que eu <em>desenvolvi</em></h2>
+    <div class="port-grid">
+
+      <!-- A Adega -->
+      <div class="port-card">
+        <div class="port-mock">
+          <div class="mk mk-adega">
+            <div class="mk-nav">
+              <div class="mk-logo"><span class="mk-logo-icon"></span>a adega</div>
+              <div class="mk-nav-btn">Peça agora</div>
+            </div>
+            <div class="mk-body">
+              <div class="mk-tag">Delivery de Bebidas · Mogi Guaçu</div>
+              <div class="mk-h1">BEBIDA GELADA<span>NA SUA PORTA</span></div>
+              <div class="mk-p">Cerveja gelada, destilados, energéticos e mais. Pague no Pix ou cartão.</div>
+              <div class="mk-btns">
+                <div class="mk-btn1">🍺 Peça agora</div>
+                <div class="mk-btn2">Como funciona</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="port-info">
+          <div class="port-name">A Adega</div>
+          <div class="port-desc">Delivery de bebidas geladas em Mogi Guaçu. Landing page com foco em conversão e botão de pedido direto.</div>
+          <div class="port-footer">
+            <span class="port-tag">Landing Page</span>
+            <a href="https://www.aadega.com.br/" target="_blank" rel="noopener" class="port-link">Visitar site →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ultra 3D Brasil -->
+      <div class="port-card">
+        <div class="port-mock">
+          <div class="mk mk-u3d">
+            <div class="mk-nav">
+              <div class="mk-logo">Ultra <span>3D</span> Brasil</div>
+              <div class="mk-nav-btn">Orçamento</div>
+            </div>
+            <div class="mk-body">
+              <div class="mk-tag">Impressão 3D Personalizada</div>
+              <div class="mk-h1">Personagens &amp; Colecionáveis em <span>3D</span></div>
+              <div class="mk-grid">
+                <div class="mk-item"><span class="mk-item-icon">🧩</span>Personagens</div>
+                <div class="mk-item"><span class="mk-item-icon">🏆</span>Troféus</div>
+                <div class="mk-item"><span class="mk-item-icon">🎁</span>Brindes</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="port-info">
+          <div class="port-name">Ultra 3D Brasil</div>
+          <div class="port-desc">Impressão 3D de personagens, colecionáveis e brindes personalizados. Site institucional com catálogo.</div>
+          <div class="port-footer">
+            <span class="port-tag">Site Institucional</span>
+            <a href="https://www.ultra3dbrasil.com.br" target="_blank" rel="noopener" class="port-link">Visitar site →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- OdontoPrint -->
+      <div class="port-card">
+        <div class="port-mock">
+          <div class="mk mk-odonto">
+            <div class="mk-nav">
+              <div class="mk-logo">Odonto<span>Print</span></div>
+              <div class="mk-nav-btn">Pedir agora</div>
+            </div>
+            <div class="mk-body">
+              <div class="mk-badge">Impressão de Exames Odontológicos</div>
+              <div class="mk-h1">Seus exames<br/><span>impressos e entregues</span></div>
+              <div class="mk-p">Entrega em todo o Brasil. Rápido, seguro e sem sair de casa.</div>
+              <div class="mk-btn">Fazer pedido →</div>
+              <div class="mk-pills">
+                <div class="mk-pill">🇧🇷 Todo Brasil</div>
+                <div class="mk-pill">⚡ Entrega rápida</div>
+                <div class="mk-pill">🔒 Seguro</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="port-info">
+          <div class="port-name">OdontoPrint</div>
+          <div class="port-desc">Impressão de exames odontológicos com entrega em todo o Brasil. Foco em captação de pedidos online.</div>
+          <div class="port-footer">
+            <span class="port-tag">Site Institucional</span>
+            <a href="https://www.odontoprint.com.br" target="_blank" rel="noopener" class="port-link">Visitar site →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ultra DICOM -->
+      <div class="port-card">
+        <div class="port-mock">
+          <div class="mk mk-dicom">
+            <div class="mk-nav">
+              <div class="mk-logo">Ultra <span>DICOM</span></div>
+              <div class="mk-nav-btn">Testar grátis</div>
+            </div>
+            <div class="mk-body">
+              <div class="mk-left">
+                <div class="mk-tag">Software Médico DICOM</div>
+                <div class="mk-h1">Imprima exames em <span>papel A4</span></div>
+                <div class="mk-p">Raio-X, tomografia, ressonância — sem filme radiológico caro.</div>
+                <div class="mk-btn">Baixar software →</div>
+              </div>
+              <div class="mk-right">
+                <div class="mk-xray">🩻</div>
+                <div class="mk-stats">
+                  <div class="mk-stat"><span>A4</span>papel comum</div>
+                  <div class="mk-stat"><span>-80%</span>custo</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="port-info">
+          <div class="port-name">Ultra DICOM</div>
+          <div class="port-desc">Software DICOM para impressão de exames médicos em papel A4. Landing page técnica e profissional.</div>
+          <div class="port-footer">
+            <span class="port-tag">Landing Page</span>
+            <a href="https://ultradicom.com.br" target="_blank" rel="noopener" class="port-link">Visitar site →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- UltraSistem -->
+      <div class="port-card">
+        <div class="port-mock">
+          <div class="mk mk-ultra">
+            <div class="mk-nav">
+              <div class="mk-logo">Ultra<span>Sistem</span></div>
+              <div class="mk-nav-btn">Teste grátis</div>
+            </div>
+            <div class="mk-body">
+              <div class="mk-hero">
+                <div class="mk-tag">Gestão de Laboratório de Prótese</div>
+                <div class="mk-h1">Seu lab sob <span>controle total</span></div>
+                <div class="mk-btn">Começar teste grátis →</div>
+              </div>
+              <div class="mk-dash">
+                <div class="mk-dcard"><div class="mk-dcard-n"><span>47</span></div><div class="mk-dcard-l">Ordens abertas</div></div>
+                <div class="mk-dcard"><div class="mk-dcard-n">R$<span>12k</span></div><div class="mk-dcard-l">Faturamento</div></div>
+                <div class="mk-dcard"><div class="mk-dcard-n"><span>98%</span></div><div class="mk-dcard-l">No prazo</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="port-info">
+          <div class="port-name">UltraSistem</div>
+          <div class="port-desc">Sistema em nuvem para gestão de laboratórios de prótese dentária. Captação de leads com teste grátis.</div>
+          <div class="port-footer">
+            <span class="port-tag">Sistema Web</span>
+            <a href="https://app.ultrasistem.com.br/teste-gratis" target="_blank" rel="noopener" class="port-link">Visitar site →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-card" style="border:2px dashed var(--border);background:var(--bg2);justify-content:center;align-items:center;min-height:340px;text-align:center;padding:2.5rem">
+        <div style="font-size:2rem;margin-bottom:1rem">🚀</div>
+        <div style="font-weight:700;font-size:.95rem;color:var(--fg);margin-bottom:.4rem">Seu negócio aqui</div>
+        <div style="font-size:.82rem;color:var(--fg2);line-height:1.65;margin-bottom:1.2rem">Próximo projeto da VH Web.<br/>Entre em contato e vamos começar.</div>
+        <a href="https://wa.me/5519994669950" class="btn-primary" style="font-size:.82rem;padding:.55rem 1.2rem">Falar no WhatsApp →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="sec" id="servicos" style="background:var(--bg2)">
+  <div class="w">
+    <div class="eyebrow">Serviços &amp; preços</div>
+    <h2 class="sh">Escolha o que seu<br/>negócio <em>precisa</em></h2>
+    <div class="svc-grid">
+
+      <!-- Landing Page -->
+      <div class="svc-card">
+        <div class="svc-card-glow"></div>
+        <span class="svc-icon">⚡</span>
+        <div class="svc-name">Landing Page</div>
+        <div class="svc-desc">Uma página poderosa para converter visitantes em clientes, com botão WhatsApp e SEO básico.</div>
+        <div class="svc-price-row">
+          <span class="svc-price">R$ 400</span>
+        </div>
+        <div class="svc-prazo">⏱ 3 dias úteis</div>
+        <div class="svc-feats">
+          <div class="svc-feat"><div class="svc-feat-dot"></div>Design profissional</div>
+          <div class="svc-feat"><div class="svc-feat-dot"></div>WhatsApp integrado</div>
+          <div class="svc-feat"><div class="svc-feat-dot"></div>SEO básico</div>
+          <div class="svc-feat"><div class="svc-feat-dot"></div>Mobile first</div>
+        </div>
+        <a href="https://wa.me/5519994669950" class="btn-svc-card">Pedir agora →</a>
+      </div>
+
+      <!-- Site Institucional (destaque) -->
+      <div class="svc-card">
+        <div class="svc-card-glow"></div>
+        <span class="svc-icon">🏆</span>
+        <div class="svc-hot-badge">⭐ Mais pedido</div>
+        <div class="svc-name">Site Institucional</div>
+        <div class="svc-desc">Site completo com todas as páginas do seu negócio, galeria de fotos, mapa e SEO para aparecer no Google.</div>
+        <div class="svc-price-row">
+          <span class="svc-price-from">de</span>
+          <span class="svc-price">R$ 700</span>
+        </div>
+        <div class="svc-prazo">⏱ 5–10 dias úteis</div>
+        <div class="svc-feats">
+          <div class="svc-feat"><div class="svc-feat-dot"></div>Até 5 páginas</div>
+          <div class="svc-feat"><div class="svc-feat-dot"></div>Galeria de fotos</div>
+          <div class="svc-feat"><div class="svc-feat-dot"></div>Google Maps</div>
+          <div class="svc-feat"><div class="svc-feat-dot"></div>SEO completo</div>
+        </div>
+        <a href="https://wa.me/5519994669950" class="btn-svc-card">Pedir agora →</a>
+      </div>
+
+      <!-- Loja Virtual -->
+      <div class="svc-card">
+        <div class="svc-card-glow"></div>
+        <span class="svc-icon">🛒</span>
+        <div class="svc-name">Loja Virtual</div>
+        <div class="svc-desc">Venda online com carrinho, PIX e cartão. Painel fácil de atualizar — pronto para faturar no primeiro dia.</div>
+        <div class="svc-price-row">
+          <span class="svc-price">R$ 1.800</span>
+        </div>
+        <div class="svc-prazo">⏱ 14–21 dias úteis</div>
+        <div class="svc-feats">
+          <div class="svc-feat"><div class="svc-feat-dot"></div>PIX e cartão</div>
+          <div class="svc-feat"><div class="svc-feat-dot"></div>Até 100 produtos</div>
+          <div class="svc-feat"><div class="svc-feat-dot"></div>Frete automático</div>
+          <div class="svc-feat"><div class="svc-feat-dot"></div>Painel admin</div>
+        </div>
+        <a href="https://wa.me/5519994669950" class="btn-svc-card">Pedir agora →</a>
+      </div>
+
+      <!-- Google Meu Negócio -->
+      <div class="svc-card">
+        <div class="svc-card-glow"></div>
+        <span class="svc-icon">📍</span>
+        <div class="svc-name">Google Meu Negócio</div>
+        <div class="svc-desc">Apareça no Google Maps quando alguém buscar pelo seu segmento na sua cidade. Configuração completa.</div>
+        <div class="svc-price-row">
+          <span class="svc-price">R$ 150</span>
+        </div>
+        <div class="svc-prazo">⏱ 1–2 dias úteis</div>
+        <div class="svc-feats">
+          <div class="svc-feat"><div class="svc-feat-dot"></div>Criação completa</div>
+          <div class="svc-feat"><div class="svc-feat-dot"></div>Fotos e descrição</div>
+          <div class="svc-feat"><div class="svc-feat-dot"></div>Google Maps</div>
+        </div>
+        <a href="https://wa.me/5519994669950" class="btn-svc-card">Pedir agora →</a>
+      </div>
+
+    </div>
+
+    <div class="manut">
+      <div class="manut-left">
+        <h3>🔒 Manutenção Mensal</h3>
+        <p>Site sempre seguro, atualizado e suporte direto no WhatsApp.</p>
+      </div>
+      <div class="mplans">
+        <div class="mp"><div class="mp-n">Básico</div><div class="mp-p">R$ 79<small>/mês</small></div></div>
+        <div class="mp mp--hot"><div class="mp-n">Profissional</div><div class="mp-p">R$ 149<small>/mês</small></div></div>
+        <div class="mp"><div class="mp-n">Premium</div><div class="mp-p">R$ 249<small>/mês</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section class="sec" style="background:var(--white)">
+  <div class="w">
+    <div class="eyebrow">Por que a VH Web?</div>
+    <h2 class="sh">O que me diferencia das<br/><em>agências tradicionais</em></h2>
+    <div class="diff-grid">
+      <div class="diff-card"><span class="diff-icon">⚡</span><h3>Entrega em dias, não meses</h3><p>Enquanto agências cobram R$ 3.000 e demoram meses, eu entrego em dias com a mesma qualidade profissional.</p></div>
+      <div class="diff-card"><span class="diff-icon">💬</span><h3>Você fala direto comigo</h3><p>Sem intermediários. Me manda uma mensagem no WhatsApp e eu mesmo respondo, resolvo e entrego.</p></div>
+      <div class="diff-card"><span class="diff-icon">🔍</span><h3>Site que aparece no Google</h3><p>Todo site entregue já vem com SEO local configurado para aparecer nas buscas da sua cidade.</p></div>
+      <div class="diff-card"><span class="diff-icon">📍</span><h3>Atendimento presencial</h3><p>Sou de Limeira – SP. Posso te visitar pessoalmente e entendo os negócios da nossa região.</p></div>
+    </div>
+    <div class="depo">
+      <div>
+        <div class="depo-stars">★★★★★</div>
+        <div class="depo-text">"O Vitor entregou o site da minha padaria em 4 dias. Agora apareço no Google e recebi meu primeiro pedido online na mesma semana que o site ficou no ar. Profissional de verdade!"</div>
+      </div>
+      <div class="depo-author">
+        <div class="depo-av">MR</div>
+        <div class="depo-name">Marcos Rodrigues</div>
+        <div class="depo-biz">Padaria do Rei · Limeira – SP</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="sec">
+  <div class="w">
+    <div class="eyebrow">Como funciona</div>
+    <h2 class="sh">Simples do início <em>ao fim</em></h2>
+    <div class="steps">
+      <div class="step"><div class="step-n">1</div><h4>Você manda as informações</h4><p>Nome do negócio, fotos, o que vende e cores que gosta — tudo pelo WhatsApp, sem precisar entender de tecnologia.</p></div>
+      <div class="step"><div class="step-n">2</div><h4>Eu desenvolvo o site</h4><p>Cuido do design, textos, SEO e toda a parte técnica. Você acompanha e pode pedir ajustes a qualquer momento.</p></div>
+      <div class="step"><div class="step-n">3</div><h4>Site no ar em dias</h4><p>Publico o site, configuro o domínio e entrego tudo funcionando. Já pode divulgar para seus clientes!</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre-sec" id="sobre">
+  <div class="w sobre-grid">
+
+    <div class="sobre-left">
+      <div class="sobre-profile">
         <div class="sobre-avatar">VH</div>
-        <div class="sobre-chips">
-          <span>📍 Limeira – SP</span>
-          <span>⚡ Entrega ágil</span>
-          <span>🤝 Atendimento presencial</span>
-          <span>✅ 100% profissional</span>
+        <div class="sobre-profile-name">Vitor Hugo</div>
+        <div class="sobre-profile-role">Desenvolvedor Web · Limeira – SP</div>
+        <div class="sobre-profile-divider"></div>
+        <div class="sobre-profile-stats">
+          <div class="sobre-stat">
+            <div class="sobre-stat-n">5<em>+</em></div>
+            <div class="sobre-stat-l">Clientes ativos</div>
+          </div>
+          <div class="sobre-stat">
+            <div class="sobre-stat-n">3<em>d</em></div>
+            <div class="sobre-stat-l">Prazo mínimo</div>
+          </div>
+          <div class="sobre-stat">
+            <div class="sobre-stat-n">100<em>%</em></div>
+            <div class="sobre-stat-l">Satisfação garantida</div>
+          </div>
         </div>
       </div>
-      <div class="sobre-text reveal">
-        <div class="section-tag">Quem sou eu</div>
-        <h2 class="section-title">Olá, sou o<br/><em>Vitor Hugo</em></h2>
-        <p>Sou de Limeira – SP e criei a VH Web com um objetivo simples: colocar o seu negócio na internet de forma profissional, rápida e com preço justo.</p>
-        <p>Você me envia as informações do seu negócio e eu cuido de tudo — do design à publicação. Entrego o site pronto, no prazo, sem enrolação e sem burocracia.</p>
-        <p>Enquanto agências grandes cobram R$ 3.000 e demoram meses, eu entrego em dias — e você fala direto comigo.</p>
-        <a href="https://wa.me/5519994669950" target="_blank" class="btn-primary">Falar agora →</a>
+
+      <div class="sobre-skills">
+        <div class="sobre-skill">
+          <span class="sobre-skill-icon">🎨</span>
+          <div>
+            <div class="sobre-skill-name">Design profissional</div>
+            <div class="sobre-skill-sub">Layouts modernos e limpos</div>
+          </div>
+        </div>
+        <div class="sobre-skill">
+          <span class="sobre-skill-icon">🔍</span>
+          <div>
+            <div class="sobre-skill-name">SEO local</div>
+            <div class="sobre-skill-sub">Aparece no Google</div>
+          </div>
+        </div>
+        <div class="sobre-skill">
+          <span class="sobre-skill-icon">📱</span>
+          <div>
+            <div class="sobre-skill-name">Mobile first</div>
+            <div class="sobre-skill-sub">Perfeito no celular</div>
+          </div>
+        </div>
+        <div class="sobre-skill">
+          <span class="sobre-skill-icon">⚡</span>
+          <div>
+            <div class="sobre-skill-name">Entrega rápida</div>
+            <div class="sobre-skill-sub">Em dias, não meses</div>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
 
-  <!-- CTA FINAL -->
-  <section class="cta-section">
-    <div class="cta-glow"></div>
-    <div class="container cta-inner reveal">
-      <div class="cta-tag">Vamos começar?</div>
-      <h2>Seu site pronto<br/>em <em>dias, não meses</em></h2>
-      <p>Me manda uma mensagem e te envio uma proposta no mesmo dia.</p>
-      <a href="https://wa.me/5519994669950?text=Ol%C3%A1%20Vitor%2C%20vi%20seu%20site%20e%20quero%20um%20or%C3%A7amento!" target="_blank" class="btn-primary btn-primary--lg">
-        <svg width="22" height="22" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.549 4.106 1.51 5.835L.057 23.243a.75.75 0 0 0 .921.921l5.344-1.464A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.898 0-3.671-.516-5.19-1.413l-.371-.219-3.853 1.055 1.025-3.744-.238-.386A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-        Chamar no WhatsApp
-      </a>
+    <div class="sobre-text-side">
+      <div class="eyebrow">Quem sou eu</div>
+      <h2 class="sobre-title">Olá, sou o<br/><em>Vitor Hugo</em></h2>
+      <p>Sou de Limeira – SP e criei a VH Web com um objetivo simples: <strong>colocar o seu negócio na internet de forma profissional, rápida e com preço justo.</strong></p>
+      <p>Você me envia as informações do seu negócio e eu cuido de tudo — do design à publicação. Entrego o site pronto, no prazo, sem enrolação e sem burocracia.</p>
+      <div class="sobre-quote">
+        <p>Enquanto agências grandes cobram R$ 3.000 e demoram meses, eu entrego em dias — e você fala direto comigo, sem intermediários.</p>
+      </div>
+      <a href="https://wa.me/5519994669950" class="btn-primary" style="margin-top:2rem;display:inline-flex">Falar agora →</a>
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <a href="#" class="logo">VH<span>Web</span></a>
-      <p>Sites profissionais para o seu negócio · Limeira – SP</p>
-      <p class="footer-copy">© <span id="year"></span> VH Web – Vitor Hugo</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="w faq-wrap">
+    <div class="faq-intro">
+      <div class="eyebrow">Dúvidas</div>
+      <h2 class="sh" style="margin-bottom:.8rem">Perguntas<br/>frequentes</h2>
+      <p>Não achou sua dúvida? Me manda uma mensagem no WhatsApp que respondo na hora.</p>
     </div>
-  </footer>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <button class="faq-q" onclick="tog(this)"><span>Preciso entender de tecnologia para contratar?</span><div class="faq-ico">−</div></button>
+        <div class="faq-a"><p>Não. Você me manda tudo pelo WhatsApp — texto, foto, áudio, do jeito que for mais fácil. Eu cuido de todo o resto técnico.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="tog(this)"><span>O que preciso ter pra começar?</span><div class="faq-ico">+</div></button>
+        <div class="faq-a"><p>Só as informações do seu negócio: nome, o que vende, telefone, endereço e algumas fotos. Domínio e hospedagem eu cuido.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="tog(this)"><span>Quanto tempo leva pra ficar pronto?</span><div class="faq-ico">+</div></button>
+        <div class="faq-a"><p>Landing page: 3 dias úteis. Site institucional: 5–10 dias. Loja virtual: 14–21 dias. Depende da agilidade na troca de informações.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="tog(this)"><span>Posso pedir alterações depois que ficou pronto?</span><div class="faq-ico">+</div></button>
+        <div class="faq-a"><p>Sim. Durante o desenvolvimento ajustes são gratuitos. Após a entrega, pequenas alterações entram no plano de manutenção mensal.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="tog(this)"><span>Você atende fora de Limeira?</span><div class="faq-ico">+</div></button>
+        <div class="faq-a"><p>Atendo toda a região com visitas presenciais. Para outras cidades do Brasil atendo pelo WhatsApp e videochamada — funciona igual.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <script src="script.js"></script>
-</body>
-</html>
+<!-- CTA -->
+<div class="cta-sec">
+  <div class="w cta-wrap">
+    <div class="cta-ey">Vamos começar?</div>
+    <h2>Seu site pronto em <em>dias,<br/>não meses</em></h2>
+    <p>Me manda uma mensagem e te envio uma proposta no mesmo dia.<br/>Orçamento gratuito, sem compromisso.</p>
+    <a href="https://wa.me/5519994669950" class="btn-wa">
+      <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.549 4.106 1.51 5.835L.057 23.243a.75.75 0 0 0 .921.921l5.344-1.464A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.898 0-3.671-.516-5.19-1.413l-.371-.219-3.853 1.055 1.025-3.744-.238-.386A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      Chamar no WhatsApp
+    </a>
+    <div class="cta-note">Respondo em até 2 horas · Seg a Sáb</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="w footer-inner">
+    <div class="f-logo">
+      <div class="f-logo-icon">
+        <svg width="16" height="13" viewBox="0 0 20 16" fill="none"><path d="M0 0L5 0L10 10L15 0L20 0L10 16L0 0Z" fill="rgba(255,255,255,0.4)"/></svg>
+      </div>
+      <span class="f-logo-name">VH WEB</span>
+    </div>
+    <p>Sites profissionais · Limeira – SP</p>
+    <p>© 2025 VH Web – Vitor Hugo</p>
+  </div>
+</footer>
+
+<script>
+function tog(btn){
+  const item=btn.parentElement;
+  const ico=btn.querySelector('.faq-ico');
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>{
+    i.classList.remove('open');
+    i.querySelector('.faq-ico').textContent='+';
+  });
+  if(!isOpen){item.classList.add('open');ico.textContent='−';}
+}
+</script>
